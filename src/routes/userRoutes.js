@@ -10,7 +10,7 @@ import SickSowing from "../pages/admin/SickSowing";
 
 const userRoutes = [
   { path: "/login", component: Login, public: true },
-  { path: "/", component: Login },
+  { path: "/", component: Login, public: true },
   { path: "/Home", component: Home },
   { path: "/admin/grapes-new", component: GrapeRegister },
   { path: "/admin/parcel-new", component: ParcelRegister },
