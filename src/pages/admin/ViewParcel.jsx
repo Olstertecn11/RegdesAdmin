@@ -34,6 +34,7 @@ const ViewParcel = () => {
     console.log(response);
     if (response.status === 200) {
       fetchParcels();
+      alert('Parcela eliminada correctamente');
     }
     else {
       alert('Error al eliminar la parcela');

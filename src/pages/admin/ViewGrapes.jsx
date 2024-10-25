@@ -12,7 +12,6 @@ const ViewGrapes = () => {
 
   const fetchgraps = async () => {
     const response = await getAllTiposUvas();
-    console.log(response.data[0]);
     setGraps(response.data);
   }
 
@@ -30,10 +29,10 @@ const ViewGrapes = () => {
   ];
 
   const _delete = async (id) => {
-    const response = await deleteParcela(id);
-    console.log(response);
+    const response = await deleteTipoUva(id);
     if (response.status === 200) {
       fetchgraps();
+      alert('Parcela eliminada correctamente');
     }
     else {
       alert('Error al eliminar la parcela');
