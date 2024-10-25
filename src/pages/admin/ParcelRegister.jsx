@@ -11,6 +11,7 @@ import {
   Select,
   useToast,
 } from '@chakra-ui/react';
+import { createParcela } from '../../services/parcela';
 
 function ParcelRegister() {
   const [parcelName, setParcelName] = useState('');
@@ -19,8 +20,9 @@ function ParcelRegister() {
   const [soilType, setSoilType] = useState('');
   const toast = useToast();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!parcelName || !location || !surfaceArea || !soilType) {
       toast({
         title: 'Error',
@@ -32,22 +34,54 @@ function ParcelRegister() {
       return;
     }
 
-    // Here you can handle form submission (e.g., send data to backend)
-    console.log('Parcel Data:', { parcelName, location, surfaceArea, soilType });
+    try {
+      // Crear nueva parcela
+      //
+      // 'nombre_parcela' => 'required|string|max:255',
+      // 'ubicacion' => 'required|string|max:255',
+      // 'superficie' => 'required|numeric',
+      // 'tipo_suelo' => 'required|string|max:100',
+      const response = await createParcela({
+        nombre_parcela: parcelName,
+        ubicacion: location,
+        superficie: surfaceArea,
+        tipo_suelo: soilType,
+      });
+      console.log(response);
 
-    toast({
-      title: 'Registro exitoso',
-      description: 'La parcela ha sido registrada correctamente',
-      status: 'success',
-      duration: 3000,
-      isClosable: true,
-    });
+      if (response.status === 201) {
+        toast({
+          title: 'Registro exitoso',
+          description: 'La parcela ha sido registrada correctamente',
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+        });
 
-    // Clear form fields after submission
-    setParcelName('');
-    setLocation('');
-    setSurfaceArea('');
-    setSoilType('');
+        // Restablecer los valores del formulario
+        setParcelName('');
+        setLocation('');
+        setSurfaceArea('');
+        setSoilType('');
+      } else {
+        // Si la respuesta no es la esperada, muestra un error
+        toast({
+          title: 'Error',
+          description: 'Hubo un problema al registrar la parcela',
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+        });
+      }
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'No se pudo conectar con el servidor. Intenta nuevamente.',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+    }
   };
 
   return (
@@ -94,7 +128,7 @@ function ParcelRegister() {
           </FormControl>
 
           <FormControl id="surfaceArea" isRequired>
-            <FormLabel>Superficie</FormLabel>
+            <FormLabel>Superficie (en hectáreas)</FormLabel>
             <Input
               type="number"
               placeholder="Ingresa la superficie (en hectáreas)"
@@ -117,7 +151,12 @@ function ParcelRegister() {
             </Select>
           </FormControl>
 
-          <Button bg="red.600" color='white' _hover={{ bg: 'red.800', color: 'white' }} onClick={handleSubmit}>
+          <Button
+            bg="red.600"
+            color="white"
+            _hover={{ bg: 'red.800', color: 'white' }}
+            onClick={handleSubmit}
+          >
             Registrar Parcela
           </Button>
         </Stack>
@@ -127,3 +166,4 @@ function ParcelRegister() {
 }
 
 export default ParcelRegister;
+

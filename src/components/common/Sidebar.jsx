@@ -67,7 +67,7 @@ const Sidebar = ({ toggleSidebar }) => {
         />
 
         <Text fontSize="2xl" fontWeight="bold" color={'red.600'} mb={8}>
-          DivasOnline
+          Vino Costero
         </Text>
 
         <Accordion allowToggle>
@@ -110,7 +110,7 @@ const Sidebar = ({ toggleSidebar }) => {
                 fontWeight={'normal'}
               >
                 <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => redirect('/admin/parcel-new')}>
-                  Pasarelas
+                  Parcelas
                 </Box>
               </Button>
               <Button
@@ -196,13 +196,22 @@ const Sidebar = ({ toggleSidebar }) => {
             </AccordionButton>
             <AccordionPanel pb={4}>
               <Button
-                onClick={() => redirect('/admin/reports/visualizar')}
+                onClick={() => redirect('/admin/view-parcels')}
                 variant="ghost"
                 colorScheme="red"
                 justifyContent="flex-start"
                 w="100%"
               >
-                Todos los reportes
+                Parcelas
+              </Button>
+              <Button
+                onClick={() => redirect('/admin/view-grapes')}
+                variant="ghost"
+                colorScheme="red"
+                justifyContent="flex-start"
+                w="100%"
+              >
+                Tipos Uvas
               </Button>
             </AccordionPanel>
           </AccordionItem>

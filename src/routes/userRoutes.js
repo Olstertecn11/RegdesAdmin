@@ -6,6 +6,9 @@ import GrapeRegister from "../pages/admin/GrapeRegister";
 import GrapeDisease from "../pages/admin/GrapeDisease";
 import Production from "../pages/admin/Production";
 import SickSowing from "../pages/admin/SickSowing";
+import ViewParcel from '../pages/admin/ViewParcel';
+import ViewGrapes from '../pages/admin/ViewGrapes';
+import ViewSowing from '../pages/admin/ViewSowing';
 
 
 const userRoutes = [
@@ -18,6 +21,11 @@ const userRoutes = [
   { path: "/admin/grape-disease-new", component: GrapeDisease },
   { path: "/admin/production", component: Production },
   { path: "/admin/sick-sowking", component: SickSowing },
+
+
+  { path: "/admin/view-parcels", component: ViewParcel },
+  { path: "/admin/view-grapes", component: ViewGrapes },
+  { path: "/admin/view-sowing", component: ViewSowing },
 ];
 
 export default userRoutes;

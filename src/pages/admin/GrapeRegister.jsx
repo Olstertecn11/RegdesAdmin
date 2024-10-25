@@ -11,6 +11,9 @@ import {
   Heading,
   useToast,
 } from '@chakra-ui/react';
+import { createTipoUva } from '../../services/graphe_type';
+import { getAllParcelas } from '../../services/parcela';
+import React from 'react';
 
 function GrapeRegister() {
   const [grapeName, setGrapeName] = useState('');
@@ -18,9 +21,19 @@ function GrapeRegister() {
   const [color, setColor] = useState('');
   const [ripeningTime, setRipeningTime] = useState('');
   const [parcel, setParcel] = useState('');
+  const [parcels, setParcels] = useState([]);
   const toast = useToast();
 
-  const handleSubmit = (e) => {
+  const fetchParcels = async () => {
+    const response = await getAllParcelas();
+    setParcels(response.data);
+  }
+
+  React.useEffect(() => {
+    fetchParcels();
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!grapeName || !size || !color || !ripeningTime || !parcel) {
@@ -34,18 +47,32 @@ function GrapeRegister() {
       return;
     }
 
-    // Aquí puedes manejar el envío del formulario, por ejemplo, enviar los datos a tu backend
-    console.log('Datos de Uva:', { grapeName, size, color, ripeningTime, parcel });
 
-    toast({
-      title: 'Registro exitoso',
-      description: 'El tipo de uva ha sido registrado correctamente',
-      status: 'success',
-      duration: 3000,
-      isClosable: true,
-    });
+    // 'nombre_uva' => 'required|string|max:255',
+    // 'tamano_uva' => 'required|string|max:255',
+    // 'color_uva' => 'required|string|max:100',
+    // 'tiempo_maduracion' => 'required|integer',
+    // 'parcela_id' => 'required|exists:parcelas,id'
+    const grapeTypeData = {
+      nombre_uva: grapeName,
+      tamano_uva: size,
+      color_uva: color,
+      tiempo_maduracion: parseInt(ripeningTime),
+      parcela_id: parcel,
+    };
 
-    // Limpiar campos después de registrar
+    const response = await createTipoUva(grapeTypeData);
+    console.log(response);
+    if (response.status === 200 || response.status == 200 || response.status == 201 || response.status === 201) {
+      toast({
+        title: 'Registro exitoso',
+        description: 'El tipo de uva ha sido registrado correctamente',
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+
     setGrapeName('');
     setSize('');
     setColor('');
@@ -122,10 +149,11 @@ function GrapeRegister() {
               value={parcel}
               onChange={(e) => setParcel(e.target.value)}
             >
-              {/* Aquí puedes agregar las opciones de parcelas */}
-              <option value="parcela_1">Parcela 1</option>
-              <option value="parcela_2">Parcela 2</option>
-              <option value="parcela_3">Parcela 3</option>
+              {parcels.map((parcel) => (
+                <option key={parcel.id} value={parcel.id}>
+                  {parcel.nombre_parcela}
+                </option>
+              ))}
             </Select>
           </FormControl>
 
