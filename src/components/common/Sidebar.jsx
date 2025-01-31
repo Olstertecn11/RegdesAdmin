@@ -29,6 +29,11 @@ const Sidebar = ({ toggleSidebar }) => {
     history(link);
   }
 
+  const closeSession = () => {
+    localStorage.removeItem('session');
+    history('/login');
+  }
+
   return (
     <Box
       position="fixed"
@@ -217,7 +222,7 @@ const Sidebar = ({ toggleSidebar }) => {
           </AccordionItem>
         </Accordion>
         <Button
-          onClick={() => redirect('/login')}
+          onClick={closeSession}
           variant="ghost"
           colorScheme="red"
           justifyContent="flex-start"

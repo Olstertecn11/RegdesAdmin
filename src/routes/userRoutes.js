@@ -16,7 +16,7 @@ const userRoutes = [
   { path: "/login", component: Login, public: true },
   { path: "/register", component: Register, public: true },
   { path: "/", component: Login, public: true },
-  { path: "/Home", component: Home },
+  { path: "/Dashboard", component: Home },
   { path: "/admin/grapes-new", component: GrapeRegister },
   { path: "/admin/parcel-new", component: ParcelRegister },
   { path: "/admin/sowing-new", component: SowingRegister },

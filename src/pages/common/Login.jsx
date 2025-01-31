@@ -1,20 +1,28 @@
 import React from "react";
 import { Box, Input, Button, Text, VStack, FormControl, FormLabel, Link } from "@chakra-ui/react";
 import { login } from "../../services/auth";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const emptyUser = { username: '', password: '' };
-  const [user, setUser] = React.useState();
+  const [user, setUser] = React.useState(emptyUser);
+  const history = useNavigate();
 
   const handleLogin = async () => {
     const user_request = { usuario: user.username, contrasena: user.password };
     const response = await login(user_request);
     console.log(response)
-    if (response.status === 200) {
-      console.log('Success');
 
+    if (response.status === 200) {
+      const session = { token: response.data.token, user: response.data.usuarioDB };
+      localStorage.setItem('session', JSON.stringify(session));
+      toast.success("Inicio de sesión exitoso");
+      setTimeout(() => {
+        history('/Dashboard');
+      }, 2000)
     } else {
-      console.log('Error');
+      toast.error("Error en el inicio de sesión: " + response.error);
     }
   }
 

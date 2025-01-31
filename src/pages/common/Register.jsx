@@ -1,15 +1,25 @@
 import React from "react";
 import { Box, Input, Button, Text, VStack, FormControl, FormLabel, Link } from "@chakra-ui/react";
 import { register } from "../../services/auth";
+import { toast } from "react-toastify";
+import { validateForm, validatePasswords } from "../../utils/FormValidator";
 
 const Register = () => {
   const emptyUser = { username: '', email: '', password: '', confirmPassword: '' };
   const [user, setUser] = React.useState(emptyUser);
-  const [errorMessage, setErrorMessage] = React.useState("");
 
   const handleRegister = async () => {
-    if (user.password !== user.confirmPassword) {
-      setErrorMessage("Las contraseñas no coinciden");
+    const errors = validateForm(user);
+    if (Object.keys(errors).length > 0) {
+      for (const key in errors) {
+        toast.error(errors[key]);
+      }
+      return;
+    }
+
+    const { status, message } = validatePasswords(user.password, user.confirmPassword);
+    if (!status) {
+      toast.error(message);
       return;
     }
 
@@ -17,9 +27,10 @@ const Register = () => {
     const response = await register(user.username, user.email, user.password);
     console.log(response);
     if (response.status === 201) {
-      console.log("Registro exitoso");
+      toast.success("Registro exitoso");
     } else {
-      setErrorMessage("Error en el registro");
+      // setErrorMessage("Error en el registro");
+      toast.error("Error en el registro");
     }
   };
 
@@ -119,11 +130,6 @@ const Register = () => {
             />
           </FormControl>
 
-          {errorMessage && (
-            <Text color="red.400" fontSize="sm">
-              {errorMessage}
-            </Text>
-          )}
 
           <Button
             colorScheme="green"
