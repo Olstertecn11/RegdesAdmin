@@ -60,7 +60,6 @@ const Sidebar = ({ toggleSidebar }) => {
       }}
     >
       <VStack spacing={4} align="stretch" justifyContent="flex-start">
-        {/* Botón para cerrar el sidebar */}
         <IconButton
           icon={<FaTimes />}
           aria-label="Cerrar Sidebar"
@@ -73,7 +72,7 @@ const Sidebar = ({ toggleSidebar }) => {
         />
 
         <Text fontSize="2xl" fontWeight="bold" color={'teal.600'} mb={8}>
-          Vino Costero
+          REGDES
         </Text>
 
         <Accordion allowToggle>
@@ -137,7 +136,7 @@ const Sidebar = ({ toggleSidebar }) => {
                 w="100%"
                 fontWeight={'normal'}
               >
-                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => tealirect('/admin/sowing-new')}>
+                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => tealirect('/admin/clases')}>
                   Clases
                 </Box>
               </Button>

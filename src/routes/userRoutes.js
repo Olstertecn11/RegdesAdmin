@@ -3,6 +3,7 @@ import Home from "../pages/admin/Home";
 import Register from "../pages/common/Register";
 import Churchs from "../pages/admin/Churchs";
 import Misions from "../pages/admin/Misions";
+import Clases from "../pages/admin/Clases";
 
 
 const userRoutes = [
@@ -15,6 +16,7 @@ const userRoutes = [
   { path: "/Dashboard", component: Home },
   { path: "/admin/iglesias", component: Churchs },
   { path: "/admin/misiones", component: Misions },
+  { path: "/admin/clases", component: Clases },
 
 
 
