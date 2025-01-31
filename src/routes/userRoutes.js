@@ -9,10 +9,12 @@ import SickSowing from "../pages/admin/SickSowing";
 import ViewParcel from '../pages/admin/ViewParcel';
 import ViewGrapes from '../pages/admin/ViewGrapes';
 import ViewSowing from '../pages/admin/ViewSowing';
+import Register from "../pages/common/Register";
 
 
 const userRoutes = [
   { path: "/login", component: Login, public: true },
+  { path: "/register", component: Register, public: true },
   { path: "/", component: Login, public: true },
   { path: "/Home", component: Home },
   { path: "/admin/grapes-new", component: GrapeRegister },
