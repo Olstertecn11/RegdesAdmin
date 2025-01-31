@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import userRoutes from "./userRoutes";
 import Layout from "../components/common/Layout";
+import NotFound from "../pages/common/NotFound";
 
 
 
@@ -16,6 +17,8 @@ const RouterManager = () => {
             element={entry.public ? <entry.component /> : <Layout Page={entry.component} />}
           />
         ))}
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

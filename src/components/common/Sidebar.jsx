@@ -16,6 +16,7 @@ import {
 import { FaBoxOpen, FaPlus, FaMinus, FaEdit, FaListAlt, FaFileInvoiceDollar } from "react-icons/fa";
 import { BiSolidReport } from "react-icons/bi";
 import { FaHome, FaUserAlt, FaCog, FaSignOutAlt, FaTimes, FaShoppingCart, FaComments } from 'react-icons/fa';
+import { FaDatabase } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 
 const Sidebar = ({ toggleSidebar }) => {
@@ -24,7 +25,7 @@ const Sidebar = ({ toggleSidebar }) => {
   const history = useNavigate();
 
 
-  const redirect = (link) => {
+  const tealirect = (link) => {
     toggleSidebar();
     history(link);
   }
@@ -53,7 +54,7 @@ const Sidebar = ({ toggleSidebar }) => {
           width: '4px',
         },
         '&::-webkit-scrollbar-thumb': {
-          background: 'red.700',
+          background: 'teal.700',
           borderRadius: '24px',
         },
       }}
@@ -71,12 +72,12 @@ const Sidebar = ({ toggleSidebar }) => {
           onClick={toggleSidebar}
         />
 
-        <Text fontSize="2xl" fontWeight="bold" color={'red.600'} mb={8}>
+        <Text fontSize="2xl" fontWeight="bold" color={'teal.600'} mb={8}>
           Vino Costero
         </Text>
 
         <Accordion allowToggle>
-          <AccordionItem border='none' mt={2} color='red.600'>
+          <AccordionItem border='none' mt={2} color='teal.600'>
             <AccordionButton>
               <Box flex="1" textAlign="left" display="flex" alignItems="center" >
                 <FaHome style={{ marginRight: '8px' }} />
@@ -87,10 +88,10 @@ const Sidebar = ({ toggleSidebar }) => {
             <AccordionPanel pb={4}>
               <Button
                 variant="ghost"
-                colorScheme="red"
+                colorScheme="teal"
                 justifyContent="flex-start"
                 w="100%"
-                onClick={() => redirect('/admin/dashboard')}
+                onClick={() => tealirect('/admin/dashboard')}
               >
                 Inicio
               </Button>
@@ -98,10 +99,10 @@ const Sidebar = ({ toggleSidebar }) => {
           </AccordionItem>
 
 
-          <AccordionItem border='none' mt={2} color='red.600'>
+          <AccordionItem border='none' mt={2} color='teal.600'>
             <AccordionButton>
               <Box flex="1" textAlign="left" display="flex" alignItems="center">
-                <FaBoxOpen style={{ marginRight: '8px' }} />
+                <FaDatabase style={{ marginRight: '8px' }} />
                 Registros
               </Box>
               <AccordionIcon />
@@ -109,54 +110,54 @@ const Sidebar = ({ toggleSidebar }) => {
             <AccordionPanel pb={4}>
               <Button
                 variant="ghost"
-                colorScheme="red"
+                colorScheme="teal"
                 justifyContent="flex-start"
                 w="100%"
                 fontWeight={'normal'}
               >
-                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => redirect('/admin/parcel-new')}>
-                  Parcelas
+                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => tealirect('/admin/iglesias')}>
+                  Iglesias
                 </Box>
               </Button>
               <Button
                 variant="ghost"
-                colorScheme="red"
+                colorScheme="teal"
                 justifyContent="flex-start"
                 w="100%"
                 fontWeight={'normal'}
               >
-                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => redirect('/admin/grapes-new')}>
-                  Uvas
+                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => tealirect('/admin/grapes-new')}>
+                  Misiones
                 </Box>
               </Button>
               <Button
                 variant="ghost"
-                colorScheme="red"
+                colorScheme="teal"
                 justifyContent="flex-start"
                 w="100%"
                 fontWeight={'normal'}
               >
-                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => redirect('/admin/sowing-new')}>
-                  Siembra
+                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => tealirect('/admin/sowing-new')}>
+                  Clases
                 </Box>
               </Button>
 
               <Button
                 variant="ghost"
-                colorScheme="red"
+                colorScheme="teal"
                 justifyContent="flex-start"
                 w="100%"
                 fontWeight={'normal'}
               >
-                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => redirect('/admin/grape-disease-new')}>
-                  Enfermedades de Uvas
+                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => tealirect('/admin/grape-disease-new')}>
+                  Maestros
                 </Box>
               </Button>
             </AccordionPanel>
           </AccordionItem>
 
 
-          <AccordionItem border='none' mt={2} color='red.600'>
+          <AccordionItem border='none' mt={2} color='teal.600'>
             <AccordionButton>
               <Box flex="1" textAlign="left" display="flex" alignItems="center">
                 <FaBoxOpen style={{ marginRight: '8px' }} />
@@ -167,23 +168,23 @@ const Sidebar = ({ toggleSidebar }) => {
             <AccordionPanel pb={4}>
               <Button
                 variant="ghost"
-                colorScheme="red"
+                colorScheme="teal"
                 justifyContent="flex-start"
                 w="100%"
                 fontWeight={'normal'}
               >
-                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => redirect('/admin/production')}>
+                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => tealirect('/admin/production')}>
                   Fases
                 </Box>
               </Button>
               <Button
                 variant="ghost"
-                colorScheme="red"
+                colorScheme="teal"
                 justifyContent="flex-start"
                 w="100%"
                 fontWeight={'normal'}
               >
-                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => redirect('/admin/sick-sowking')}>
+                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => tealirect('/admin/sick-sowking')}>
                   Siembra enferma
                 </Box>
               </Button>
@@ -191,7 +192,7 @@ const Sidebar = ({ toggleSidebar }) => {
             </AccordionPanel>
           </AccordionItem>
 
-          <AccordionItem border='none' mt={2} color='red.600'>
+          <AccordionItem border='none' mt={2} color='teal.600'>
             <AccordionButton>
               <Box flex="1" textAlign="left" display="flex" alignItems="center" >
                 <BiSolidReport style={{ marginRight: '8px' }} />
@@ -201,18 +202,18 @@ const Sidebar = ({ toggleSidebar }) => {
             </AccordionButton>
             <AccordionPanel pb={4}>
               <Button
-                onClick={() => redirect('/admin/view-parcels')}
+                onClick={() => tealirect('/admin/view-parcels')}
                 variant="ghost"
-                colorScheme="red"
+                colorScheme="teal"
                 justifyContent="flex-start"
                 w="100%"
               >
                 Parcelas
               </Button>
               <Button
-                onClick={() => redirect('/admin/view-grapes')}
+                onClick={() => tealirect('/admin/view-grapes')}
                 variant="ghost"
-                colorScheme="red"
+                colorScheme="teal"
                 justifyContent="flex-start"
                 w="100%"
               >
@@ -224,7 +225,7 @@ const Sidebar = ({ toggleSidebar }) => {
         <Button
           onClick={closeSession}
           variant="ghost"
-          colorScheme="red"
+          colorScheme="teal"
           justifyContent="flex-start"
           w="100%"
         >
