@@ -2,6 +2,7 @@ import Login from "../pages/common/Login";
 import Home from "../pages/admin/Home";
 import Register from "../pages/common/Register";
 import Churchs from "../pages/admin/Churchs";
+import Misions from "../pages/admin/Misions";
 
 
 const userRoutes = [
@@ -13,6 +14,7 @@ const userRoutes = [
 
   { path: "/Dashboard", component: Home },
   { path: "/admin/iglesias", component: Churchs },
+  { path: "/admin/misiones", component: Misions },
 
 
 

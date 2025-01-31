@@ -10,3 +10,7 @@ export const addMision = async (mision) => {
   return handleRequest(() => api.post('/mision', mision));
 }
 
+
+export const deleteMision = async (id) => {
+  return handleRequest(() => api.delete(`/mision/${id}`));
+}
