@@ -13,3 +13,7 @@ export const addChurch = async (church) => {
 export const getInfo = async (user) => {
   return handleRequest(() => api.get('/me', { usuario: user }));
 }
+
+export const deleteChurch = async (id) => {
+  return handleRequest(() => api.delete(`/iglesia/${id}`));
+}
