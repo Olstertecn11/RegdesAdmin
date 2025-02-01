@@ -4,6 +4,7 @@ import Register from "../pages/common/Register";
 import Churchs from "../pages/admin/Churchs";
 import Misions from "../pages/admin/Misions";
 import Clases from "../pages/admin/Clases";
+import Usuarios from "../pages/admin/Usuarios";
 
 
 const userRoutes = [
@@ -17,6 +18,7 @@ const userRoutes = [
   { path: "/admin/iglesias", component: Churchs },
   { path: "/admin/misiones", component: Misions },
   { path: "/admin/clases", component: Clases },
+  { path: "/admin/usuarios", component: Usuarios },
 
 
 

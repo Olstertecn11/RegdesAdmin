@@ -148,8 +148,8 @@ const Sidebar = ({ toggleSidebar }) => {
                 w="100%"
                 fontWeight={'normal'}
               >
-                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => tealirect('/admin/grape-disease-new')}>
-                  Maestros
+                <Box flex="1" textAlign="left" display="flex" alignItems="center" fontSize={14} onClick={() => tealirect('/admin/usuarios')}>
+                  Usuarios
                 </Box>
               </Button>
             </AccordionPanel>
