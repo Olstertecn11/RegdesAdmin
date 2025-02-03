@@ -156,6 +156,7 @@ const Sidebar = ({ toggleSidebar }) => {
           </AccordionItem>
 
 
+          {/*
           <AccordionItem border='none' mt={2} color='teal.600'>
             <AccordionButton>
               <Box flex="1" textAlign="left" display="flex" alignItems="center">
@@ -189,7 +190,7 @@ const Sidebar = ({ toggleSidebar }) => {
               </Button>
 
             </AccordionPanel>
-          </AccordionItem>
+          </AccordionItem>*/}
 
           <AccordionItem border='none' mt={2} color='teal.600'>
             <AccordionButton>
@@ -200,6 +201,7 @@ const Sidebar = ({ toggleSidebar }) => {
               <AccordionIcon />
             </AccordionButton>
             <AccordionPanel pb={4}>
+              {/*}
               <Button
                 onClick={() => tealirect('/admin/view-parcels')}
                 variant="ghost"
@@ -217,7 +219,7 @@ const Sidebar = ({ toggleSidebar }) => {
                 w="100%"
               >
                 Tipos Uvas
-              </Button>
+              </Button>*/}
             </AccordionPanel>
           </AccordionItem>
         </Accordion>

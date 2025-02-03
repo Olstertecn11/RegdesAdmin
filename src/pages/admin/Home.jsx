@@ -11,12 +11,12 @@ const Home = () => {
 
       <Flex justifyContent={'center'} gap={'2rem'} flexDir={'row'} w='80vw' bg='gray.100' p={10} borderRadius={'10px'}>
         <Box w={'50%'} bg='gray.200' p={10}>
-          <Text>Parcelas</Text>
+          <Text>Estadísticas</Text>
           <Text>10</Text>
         </Box>
 
         <Box w={'50%'} bg='gray.200' p={10}>
-          <Text>Parcelas</Text>
+          <Text>Estadísticas</Text>
           <Text>10</Text>
         </Box>
       </Flex>
@@ -24,12 +24,12 @@ const Home = () => {
 
       <Flex justifyContent={'center'} gap={'2rem'} flexDir={'row'} w='80vw' bg='gray.100' p={10} >
         <Box w={'50%'} bg='gray.200' p={10}>
-          <Text>Parcelas</Text>
+          <Text>Estadísticas</Text>
           <Text>10</Text>
         </Box>
 
         <Box w={'50%'} bg='gray.200' p={10}>
-          <Text>Parcelas</Text>
+          <Text>Estadísticas</Text>
           <Text>10</Text>
         </Box>
       </Flex>
