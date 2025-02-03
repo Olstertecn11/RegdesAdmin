@@ -10,17 +10,27 @@ import ControlsBox from "../../components/common/ControlsBox";
 import { MdDelete } from "react-icons/md";
 import { toast } from "react-toastify";
 import { getClases, addClase } from "../../services/clases";
+import { getChurchs } from "../../services/church";
 import { deleteClase } from "../../services/clases";
 
 
 const Clases = () => {
 
   const [clases, setClases] = React.useState([]);
+  const [churchs, setChurchs] = React.useState([]);
 
+
+  const getChurchName = (id) => {
+    const church = churchs.find(church => church.id === id);
+    if (church) {
+      return church.nombre;
+    }
+    return '';
+  }
 
   const columns = [
     { header: 'ID', accessor: 'id' },
-    { header: 'Iglesia', accessor: 'id_iglesia' },
+    { header: 'Iglesia', accessor: 'id_iglesia', render: (row) => getChurchName(row) },
     { header: 'Nombre Clase', accessor: 'nombre' },
   ];
 
@@ -28,6 +38,11 @@ const Clases = () => {
     const response = await getClases();
     if (response.status === 200) {
       setClases(response.data);
+    }
+
+    const _response_churchs = await getChurchs();
+    if (_response_churchs.status === 200) {
+      setChurchs(_response_churchs.data);
     }
   }
 
