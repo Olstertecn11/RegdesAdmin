@@ -90,7 +90,7 @@ const Sidebar = ({ toggleSidebar }) => {
                 colorScheme="teal"
                 justifyContent="flex-start"
                 w="100%"
-                onClick={() => tealirect('/admin/dashboard')}
+                onClick={() => tealirect('/Dashboard')}
               >
                 Inicio
               </Button>
