@@ -46,7 +46,7 @@ const AddUser = ({ onAdd }) => {
   return (
     <Box bg="gray.100" p={6} borderRadius="md" boxShadow="lg" w="100%">
       <Heading size="md" color="blue.600" textAlign="center" mb={4}>
-        Agregar Clase
+        Usuario
       </Heading>
       <VStack spacing={4}>
         <FormControl>
